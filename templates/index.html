@@ -14,7 +14,7 @@
     <!-- <link href="{%static 'css/bootstrap-theme.css'%}" rel="stylesheet"> -->
     <link href="{%static 'css/style.css'%}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
+    {% load static %}
 </head>
 
 <body>
@@ -39,6 +39,9 @@
                 <div class="row">
                     <button onclick="get_photos()" class="btn btn-info">Go</button>
                 </div>
+            </div>
+            <div class=row>
+                <p>YYYYYY{%static 'style.css'%}</p>
             </div>
 
             <div id="photos" class="col-lg-8 col-md-8">

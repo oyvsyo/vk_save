@@ -3,9 +3,12 @@ from django.template import Template, Context
 from django.http import HttpResponse
 import json
 import os
+import settings
 import vk_save.vkapi as vkapi
 
+
 def index(request):
+
     context = {}
     return render(request, 'index.html', context)
 
@@ -14,10 +17,12 @@ def get_photos(request):
     if request.method == 'POST':
 
         url = request.POST['url']
+        photos_list = vkapi.get_photos(url)
 
         content = Context({
-            "photos_list": vkapi.get_photos(url),
+            "photos_list": photos_list,
         })
+
 
         path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'/templates/photos.html'
         with open(path, 'r') as template_file:

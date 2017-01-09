@@ -39,5 +39,5 @@ def get_photos(url):
                                         access_token=token, offset=1000 * i)
         time.sleep(0.5)
 
-    photos = list(map(lambda item: get_largest_photo(item), photos_items))
+    photos = list(set(list(map(lambda item: get_largest_photo(item), photos_items))))
     return photos
